@@ -1,14 +1,18 @@
 ---
 
 alpaca_from_source: no
-
 alpaca_version: master
 alpaca_clone_directory: /opt/alpaca
 
 alpaca_karaf_repos:
-  - mvn:ca.islandora.alpaca/islandora-karaf/LATEST/xml/features
+  - mvn:org.apache.camel.karaf/apache-camel/2.20.4/xml/features
+  - mvn:org.apache.activemq/activemq-karaf/5.15.0/xml/features
+  - file:{{ alpaca_clone_directory }}/karaf/build/resources/main/features.xml
+ #- mvn:ca.islandora.alpaca/islandora-karaf/LATEST/xml/features
 
 alpaca_features:
+  - camel
+  - activemq-camel
   - islandora-http-client
   - islandora-indexing-triplestore
   - islandora-indexing-fcrepo
