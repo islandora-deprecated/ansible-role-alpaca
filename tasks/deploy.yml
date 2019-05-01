@@ -1,6 +1,6 @@
 ---
 
-- name: Add Alpaca Repos (package)
+- name: Add Alpaca Repos
   karaf_repo:
     state: present
     name: "{{ item }}"
