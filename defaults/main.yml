@@ -24,7 +24,7 @@ alpaca_karaf_etc_dir: "{{ alpaca_karaf_dir }}/etc"
 alpaca_karaf_deploy_dir: "{{ alpaca_karaf_dir }}/deploy"
 alpaca_karaf_user: karaf
 alpaca_local_mvn_path: /opt/maven/repo
-  
+
 alpaca_settings:
   - pid: ca.islandora.alpaca.http.client
     settings:
@@ -50,7 +50,7 @@ alpaca_settings:
       file.delete.stream: activemq:queue:islandora-indexing-fcrepo-file-delete
       milliner.baseUrl: http://localhost:8000/milliner/
       gemini.baseUrl: http://localhost:8000/gemini/
-      
+
 alpaca_blueprint_settings:
   - pid: ca.islandora.alpaca.connector.houdini
     in_stream: activemq:queue:islandora-connector-houdini
