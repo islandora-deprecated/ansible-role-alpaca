@@ -7,12 +7,13 @@ alpaca_clone_directory: /opt/alpaca
 alpaca_karaf_repos:
   - mvn:org.apache.camel.karaf/apache-camel/2.20.4/xml/features
   - mvn:org.apache.activemq/activemq-karaf/5.15.0/xml/features
-  - file:{{ alpaca_clone_directory }}/karaf/build/resources/main/features.xml
- #- mvn:ca.islandora.alpaca/islandora-karaf/LATEST/xml/features
+  - mvn:ca.islandora.alpaca/islandora-karaf/LATEST/xml/features
 
 alpaca_features:
-  - camel
-  - activemq-camel
+  - fcrepo-service-activemq
+  - fcrepo-camel
+  - fcrepo-service-camel
+  - fcrepo-indexing-triplestore
   - islandora-http-client
   - islandora-indexing-triplestore
   - islandora-indexing-fcrepo
@@ -23,11 +24,16 @@ alpaca_karaf_etc_dir: "{{ alpaca_karaf_dir }}/etc"
 alpaca_karaf_deploy_dir: "{{ alpaca_karaf_dir }}/deploy"
 alpaca_karaf_user: karaf
 alpaca_local_mvn_path: /opt/maven/repo
-
+  
 alpaca_settings:
   - pid: ca.islandora.alpaca.http.client
     settings:
       token.value: islandora
+  - pid: org.fcrepo.camel.indexing.triplestore
+    settings:
+      input.stream: activemq:topic:fedora
+      triplestore.reindex.stream: activemq:queue:triplestore.reindex
+      triplestore.baseUrl: http://localhost:8080/bigdata/namespace/islandora/sparql
   - pid: ca.islandora.alpaca.indexing.triplestore
     settings:
       error.maxRedeliveries: 10
@@ -44,7 +50,7 @@ alpaca_settings:
       file.delete.stream: activemq:queue:islandora-indexing-fcrepo-file-delete
       milliner.baseUrl: http://localhost:8000/milliner/
       gemini.baseUrl: http://localhost:8000/gemini/
-
+      
 alpaca_blueprint_settings:
   - pid: ca.islandora.alpaca.connector.houdini
     in_stream: activemq:queue:islandora-connector-houdini
