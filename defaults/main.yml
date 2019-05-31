@@ -7,7 +7,7 @@ alpaca_clone_directory: /opt/alpaca
 alpaca_karaf_repos:
   - mvn:org.apache.camel.karaf/apache-camel/2.20.4/xml/features
   - mvn:org.apache.activemq/activemq-karaf/5.15.0/xml/features
-  - mvn:ca.islandora.alpaca/islandora-karaf/0.8.0/xml/features
+  - mvn:ca.islandora.alpaca/islandora-karaf/1.0.0/xml/features
 
 alpaca_features:
   - fcrepo-service-activemq
