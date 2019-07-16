@@ -52,6 +52,11 @@ alpaca_settings:
       gemini.baseUrl: http://localhost:8000/gemini/
 
 alpaca_blueprint_settings:
+  - pid: ca.islandora.alpaca.connector.ocr
+    in_stream: activemq:queue:islandora-connector-ocr
+    derivative_service_url: http://localhost:8000/hypercube
+    error_max_redeliveries: 5
+    camel_context_id: IslandoraConnectorOCR
   - pid: ca.islandora.alpaca.connector.houdini
     in_stream: activemq:queue:islandora-connector-houdini
     derivative_service_url: http://localhost:8000/houdini/convert
@@ -62,3 +67,8 @@ alpaca_blueprint_settings:
     derivative_service_url: http://localhost:8000/homarus/convert
     error_max_redeliveries: 5
     camel_context_id: IslandoraConnectorHomarus
+  - pid: ca.islandora.alpaca.connector.fits
+    in_stream: activemq:queue:islandora-connector-fits
+    derivative_service_url: http://localhost:8000/crayfits/
+    error_max_redeliveries: 5
+    camel_context_id: IslandoraConnectorFits
