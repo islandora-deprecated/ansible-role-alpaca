@@ -26,6 +26,8 @@ alpaca_karaf_user: karaf
 alpaca_local_mvn_path: /opt/maven/repo
 
 triplestore_namespace: islandora
+islandora_syn_token: islandora
+
 alpaca_triplestore_base_url: http://localhost:8080/bigdata
 alpaca_milliner_base_url: http://localhost:8000/milliner
 alpaca_gemini_base_url: http://localhost:8000/gemini
