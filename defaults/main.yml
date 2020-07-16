@@ -39,7 +39,7 @@ alpaca_settings:
       token.value: islandora
   - pid: org.fcrepo.camel.indexing.triplestore
     settings:
-      input.stream: activemq:topic:fedora
+      input.stream: broker:topic:fedora
       triplestore.reindex.stream: broker:queue:triplestore.reindex
       triplestore.baseUrl: "{{ alpaca_triplestore_base_url }}/namespace/{{ triplestore_namespace }}/sparql"
   - pid: ca.islandora.alpaca.indexing.triplestore
