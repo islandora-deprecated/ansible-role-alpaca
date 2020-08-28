@@ -16,7 +16,7 @@ alpaca_from_source: no
 
 Which version to install:
 ```
-alpaca_version: master
+alpaca_version: main
 ```
 
 Where to clone Alpaca to:

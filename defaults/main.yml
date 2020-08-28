@@ -1,7 +1,7 @@
 ---
 
 alpaca_from_source: no
-alpaca_version: master
+alpaca_version: main
 alpaca_clone_directory: /opt/alpaca
 
 alpaca_karaf_repos:
